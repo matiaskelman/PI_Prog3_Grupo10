@@ -1,12 +1,12 @@
 import React from 'react'
 
-function Home() {
+function Peliculas() {
   return (
 
       <div>
         
-       Home
+       Peliculas
       </div>
   );
 }
-export default Home;
+export default Peliculas;

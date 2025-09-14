@@ -1,12 +1,12 @@
 import React from 'react'
 
-function Home() {
+function Favoritos() {
   return (
 
       <div>
         
-       Home
+       Favoritos
       </div>
   );
 }
-export default Home;
+export default Favoritos;

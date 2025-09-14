@@ -1,12 +1,12 @@
 import React from 'react'
 
-function Home() {
+function Series() {
   return (
 
       <div>
         
-       Home
+       Series
       </div>
   );
 }
-export default Home;
+export default Series;

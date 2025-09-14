@@ -8,16 +8,16 @@ class Header extends Component {
                 <nav>
             <ul className="nav nav-tabs my-4">
                 <li className="nav-item">
-                    <a className="nav-link" href="index.html">Home</a>
+                    <a className="nav-link" href="/">Home</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="movies.html">Películas</a>
+                    <a className="nav-link" href="/Peliculas">Películas</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="series.html">Series</a>
+                    <a className="nav-link" href="Series">Series</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="favorites.html">Favoritas</a>
+                    <a className="nav-link" href="Favoritos">Favoritos</a>
                 </li>
             </ul>
         
