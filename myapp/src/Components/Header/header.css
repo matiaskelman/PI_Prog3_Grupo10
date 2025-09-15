@@ -1,0 +1,46 @@
+.nav {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 0;
+  padding: 10px 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.nav-tabs {
+  background: #111;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.my-4 {
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.nav-link {
+  color: #ddd;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 8px;
+  display: inline-block;
+  border: 1px solid transparent;
+  
+}
+
+
+
+.nav-link.active {
+  background: #222;
+  color: #fff;
+  border-color: #2a2a2a;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}

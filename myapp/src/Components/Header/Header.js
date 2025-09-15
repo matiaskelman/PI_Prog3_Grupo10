@@ -1,30 +1,37 @@
-import React from 'react'
-import { Component } from 'react'
-import Buscador from '../Buscador/Buscador'
+// src/components/Header/Header.js
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import Buscador from '../Buscador/Buscador';
+import './eader.css';
+
+
 class Header extends Component {
-    render() {
-  return (
-    <>
-                <nav>
-            <ul className="nav nav-tabs my-4">
-                <li className="nav-item">
-                    <a className="nav-link" href="/">Home</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="/Peliculas">Películas</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="Series">Series</a>
-                </li>
-                <li className="nav-item">
-                    <a className="nav-link" href="Favoritos">Favoritos</a>
-                </li>
-            </ul>
-        
-        {/* BUSCADOR */}
-        <Buscador />
+  render() {
+    return (
+      <header className="site-header">
+        <nav>
+          <ul className="nav nav-tabs my-4">
+            <li className="nav-item">
+              <Link className="nav-link" to="/">Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/Peliculas">Películas</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/Series">Series</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/Favoritos">Favoritos</Link>
+            </li>
+          </ul>
+
+          
+          <Buscador />
         </nav>
-    </>
-  )
-} }
+      </header>
+    );
+  }
+}
+
 export default Header;
+
