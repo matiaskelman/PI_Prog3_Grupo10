@@ -2,12 +2,7 @@ import React, { Component } from 'react'
 import Movie from '../Movie/Movie'
 
 export class Movies extends Component {
-    constructor(props) {
-        super(props)
-  
-    }
-    
-    
+   
   render() {
     return (
    <React.Fragment>
