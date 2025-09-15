@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Buscador from '../Buscador/Buscador';
-import './eader.css';
+import './header.css';
 
 
 class Header extends Component {

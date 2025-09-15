@@ -1,11 +1,12 @@
 import React from 'react'
-
+import Index from '../../Components/Index/Index';
 function Home() {
+
   return (
 
       <div>
         
-       Home
+      <Index/>
       </div>
   );
 }
