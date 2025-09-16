@@ -1,0 +1,50 @@
+.ficha {
+  display: flex;
+  align-items: flex-start;
+  padding: 14px;
+  background: #1b1b1b;
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  color: #ffffff;
+}
+
+.img {
+  width: 150px;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.cuerpo { margin-left: 14px; }
+
+.tititulo {
+  margin: 0 0 8px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.descrip {
+  margin: 0 0 12px;
+  color: #b3b3b3;
+  line-height: 1.45;
+}
+
+.btn {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: #e50914;
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.btn--sm { font-size: 14px; padding: 6px 10px; }
+.btn--pri { background: #e50914; border-color: #e50914; }
+.btn--adv { background: #6d6d6d; border-color: #6d6d6d; }
+.btn--ol  { background: transparent; color: #e50914; border: 1px solid #e50914; }
+
+

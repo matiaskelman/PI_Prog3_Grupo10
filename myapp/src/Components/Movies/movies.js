@@ -1,21 +1,25 @@
-import React, { Component } from 'react'
-import Movie from '../Movie/Movie'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Movie from '../Movie/Movie';
+import "./style.css"
 
-export class Movies extends Component {
-   
-  render() {
-    return (
-   <React.Fragment>
-     <section className="row cards" id="movies">
-        {
-this.props.data ?
-            this.props.data.map((movie) => <Movie key={movie.id} data={movie} />)
-:            <p>NO API CALL</p>
-        }    
-        </section>
-    </React.Fragment>
-    )
-  }
+function Movies({ titulo, videos, toAll }) {
+  return (
+    <section className="sectionMovies">
+      <div className="divMovies">
+        <h2 className="Titulo">{titulo}</h2>
+        {toAll === false ? null : (
+          <Link to={toAll} className="section__see-all">See all</Link>
+        )}
+      </div>
+
+      <div className="grid">
+        {videos != null && videos.length > 0
+          ? videos.map((item) => <Movie key={item.id} data={item} />)
+          : <p className="empty">No hay resultados.</p>}
+      </div>
+    </section>
+  );
 }
 
-export default Movies
+export default Movies;

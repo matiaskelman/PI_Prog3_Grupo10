@@ -4,46 +4,58 @@ import Movies from '../Movies/Movies'
 
 class Index extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            data: []
-            
+  constructor(props) {
+    super(props);
+    this.state = {
+      masVistas: [],
+      mejorValoradas: [],
+      cargandoMasVistas: true,
+      cargandoMejores: true
+    };
+  }
+
+  componentDidMount() {
+  
+    fetch('https://api.themoviedb.org/3/movie/popular?api_key=f9fed29318027d1571e2d4e385ce272d&language=es-ES&page=1')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({ masVistas: data.results, cargandoMasVistas: false })
+        console.log(data)
+      })
+      .catch(() => this.setState({ masVistas: [] }));
+
+    fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=f9fed29318027d1571e2d4e385ce272d&language=es-ES&page=1')
+      .then(response => response.json())
+      .then(data => this.setState({ mejorValoradas: data.results, cargandoMejores: false }))
+      .catch(() => this.setState({ mejorValoradas: [] }));
+  }
+
+  render() {
+    return (
+      <main className="container">
+        <h1>UdeSA Movies</h1>
+        {
+          this.state.cargandoMasVistas ? <h1>Cargando...</h1> :
+            <Movies
+              titulo="Popular movies this week"
+              videos={this.state.masVistas.splice(0, 4)}
+              toAll="/movies?mode=popular"
+            />
+
         }
-    }
-    
-//API CALL
-    componentDidMount() {
-        const url = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
-        const options = {
-            method: 'GET',
-            headers: {
-                accept: 'application/json',
-                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NDUwYjY4YjIxYWRmM2NjYzRiMTI4ZGY5ODA5MDhkNSIsIm5iZiI6MTc1NzkzNDc1MS45ODIsInN1YiI6IjY4YzdmNDlmZjM1YmViOWE3YWNhNzgwZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.flHHnsGeBRhXnQg4eyDfn6si4Ao2T-nnwa5q-T674rw'
-            }
-        };
 
-        fetch(url, options)
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                this.setState({ data: data.results },() => console.log(this.state.data))
-            })
-            .catch(err => console.error(err));
-            console.log(this.state.data)
-    }
-//FIN API CALL
+        {
+          this.state.cargandoMejores ? <h1>Cargando...</h1> :
+            <Movies
+              titulo="Top rated movies"
+              videos={this.state.mejorValoradas.splice(0, 4)}
+              toAll="/movies?mode=top_rated" />
+        }
 
-    render() {
 
-        return (
-            <div className="container">
-                <h1>UdeSA Movies</h1>
-                <h2 className="alert alert-primary">Popular movies this week</h2>
-                <Movies data={this.state.data}/>
-                  </div>
-        )
-    }
+      </main>
+    );
+  }
 }
 
 export default Index;

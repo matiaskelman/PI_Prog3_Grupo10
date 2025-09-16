@@ -1,28 +1,93 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import './Movie.css';
 
-export class Movie extends Component {
-    constructor(props) {
-        super(props)
-        console.log(this.props.data);
+class Movie extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      esFavorito: false,
+      verMas: false,
+      textoBoton: 'Ver mas',
+      informacionItem: props.data
+    };
+  }
+
+  componentDidMount() {
+    const recuperoFavoritos = localStorage.getItem('favoritos');
+    const favoritosParseados = recuperoFavoritos !== null ? JSON.parse(recuperoFavoritos) : [];
+    if (favoritosParseados.includes(this.state.informacionItem.id)) {
+      this.setState({ esFavorito: true });
     }
-    
+  }
+
+  verDescripcion() {
+    this.setState({
+      verMas: !this.state.verMas,
+      textoBoton: this.state.textoBoton === 'Ver mas' ? 'Ver menos' : 'Ver mas'
+    });
+  }
+
+  agregarFavorito(id) {
+    const recuperoFavoritos = localStorage.getItem('favoritos');
+    const favoritosParseados = recuperoFavoritos !== null ? JSON.parse(recuperoFavoritos) : [];
+    favoritosParseados.push(id);
+    localStorage.setItem('favoritos', JSON.stringify(favoritosParseados));
+    this.setState({ esFavorito: true });
+  }
+
+  sacarFavorito(id) {
+    const recuperoFavoritos = localStorage.getItem('favoritos');
+    const favoritosParseados = recuperoFavoritos !== null ? JSON.parse(recuperoFavoritos) : [];
+    const filtroFavoritos = favoritosParseados.filter(f => f !== id);
+    localStorage.setItem('favoritos', JSON.stringify(filtroFavoritos));
+    this.setState({ esFavorito: false });
+  }
+
   render() {
+    const item = this.state.informacionItem;
+    const titulo = item.title != null ? item.title : item.name;
+    const verificacion = this.props.type === 'serie' ? `/serie/detalle/${item.id}` : `/movie/detalle/${item.id}`;
+
     return (
-      <React.Fragment>
-        <h2 className="alert alert-primary">{this.props.data.title}</h2>
-        <section className="row">
-            <img className="col-md-6" src={`https://image.tmdb.org/t/p/w500/${this.props.data.backdrop_path}`} alt=""/>
-            <section className="col-md-6 info">
-                <h3>Descripción</h3>
-                <p className="description">{this.props.data.overview}</p>
-                <p className="mt-0 mb-0" id="release-date"><strong>Fecha de estreno:</strong> {this.props.data.release_date}</p>
-                <p className="mt-0 mb-0 length"><strong>Duración:</strong> {this.props.data.duration}</p>
-                <p className="mt-0" id="votes"><strong>Puntuación:</strong> {this.props.data.vote_average}</p>
-            </section>
-        </section>
-        </React.Fragment>
-    )
+      <article className="ficha">
+        {item.poster_path ? (
+          <img
+            src={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
+            alt={titulo != null ? titulo : ''}
+            className="img"
+          />
+        ) : null}
+
+        <div className="cuerpo">
+          <h5 className="tititulo">{titulo}</h5>
+
+          {this.state.verMas && item.overview ? (
+            <p className="descrip">{item.overview}</p>
+          ) : null}
+
+          <button onClick={() => this.verDescripcion()} className="btn btn--pri btn--sm">
+            {this.state.textoBoton}
+          </button>
+
+          {this.state.esFavorito ? (
+            <button onClick={() => this.sacarFavorito(item.id)} className="btn btn--adv btn--sm">
+              Sacar
+            </button>
+          ) : (
+            <button onClick={() => this.agregarFavorito(item.id)} className="btn btn--adv btn--sm">
+              Agregar
+            </button>
+          )}
+
+          <Link to={verificacion} className="btn btn--ol btn--sm">
+            Ver detalle
+          </Link>
+        </div>
+      </article>
+    );
   }
 }
 
-export default Movie
+export default Movie;
+
