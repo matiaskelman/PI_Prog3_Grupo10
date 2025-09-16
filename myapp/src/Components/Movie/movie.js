@@ -47,7 +47,7 @@ class Movie extends Component {
   render() {
     const item = this.state.informacionItem;
     const titulo = item.title != null ? item.title : item.name;
-    const verificacion = this.props.type === 'serie' ? `/serie/detalle/${item.id}` : `/movie/detalle/${item.id}`;
+    const verificacion = `/movie/detalle/${item.id}`;
 
     return (
       <article className="ficha">
