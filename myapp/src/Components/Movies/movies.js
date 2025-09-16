@@ -9,7 +9,7 @@ export class Movies extends Component {
      <section className="row cards" id="movies">
         {
 this.props.data ?
-            this.props.data.map((movie) => <Movie data ={movie}/>)
+            this.props.data.map((movie) => <Movie key={movie.id} data={movie} />)
 :            <p>NO API CALL</p>
         }    
         </section>

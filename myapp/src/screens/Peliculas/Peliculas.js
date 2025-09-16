@@ -5,7 +5,7 @@ function Peliculas() {
 
       <div>
         
-       Peliculas
+       
       </div>
   );
 }

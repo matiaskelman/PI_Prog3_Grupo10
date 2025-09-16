@@ -8,6 +8,7 @@ class Index extends Component {
         super(props)
         this.state = {
             data: []
+            
         }
     }
     
