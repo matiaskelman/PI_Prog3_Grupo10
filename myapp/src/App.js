@@ -6,7 +6,7 @@ import Footer from './Components/Footer/Footer.js';
 import Home from './screens/Home/Home.js';
 import Favoritos from './screens/Favoritos/Favoritos.js';
 import Peliculas from './screens/Peliculas/Peliculas.js';
-import Series from './screens/Series/Series.js';
+import SeriesView from './screens/Series/SeriesView.js';
 import PageNotFound from './screens/PageNotFound/PageNotFound.js';
 import Resultados from './screens/Resultados/Resultados.js';
 import Detalle from './screens/Detalle/Detalle.js';
@@ -19,9 +19,9 @@ function App() {
         <Route path='/' component={Home} exact={true} />
         <Route path='/Favoritos' component={Favoritos} exact={true} />
         <Route path='/Peliculas' component={Peliculas} exact={true} />
-        <Route path='/Series' component={Series} exact={true} />
+        <Route path='/Series' component={SeriesView} exact={true} />
         <Route path='/Resultados:busqueda' component={Resultados} exact={true} />
-        <Route path='/Detalle' component={Detalle} exact={true} />
+        <Route path='/Detalle/:id' component={Detalle} exact={true} />
 
         <Route component={PageNotFound}/>
       </Switch>

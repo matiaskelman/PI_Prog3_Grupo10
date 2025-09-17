@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Series from '../../Components/Series/series';
-export class Peliculas extends Component {
+export class SeriesView extends Component {
    constructor(props) {
     super(props);
     this.state = {
@@ -10,7 +10,7 @@ export class Peliculas extends Component {
   }
     componentDidMount() {
   
-    fetch('https://api.themoviedb.org/3/movie/popular?api_key=f9fed29318027d1571e2d4e385ce272d&language=es-ES&page=1')
+    fetch('https://api.themoviedb.org/3/tv/popular?api_key=f9fed29318027d1571e2d4e385ce272d&language=es-ES&page=1')
       .then(response => response.json())
       .then(data => {
         this.setState({ series: data.results, cargando: false })
@@ -28,4 +28,4 @@ export class Peliculas extends Component {
   }
 }
 
-export default Peliculas;
+export default SeriesView;
