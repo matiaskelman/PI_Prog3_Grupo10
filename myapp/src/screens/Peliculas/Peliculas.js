@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import Series from '../../Components/Series/series';
+import Movies from '../../Components/Movies/movies';
 export class Peliculas extends Component {
    constructor(props) {
     super(props);
     this.state = {
-      series: [],
+      data: [],
       cargando: true,
     };
   }
@@ -13,15 +13,19 @@ export class Peliculas extends Component {
     fetch('https://api.themoviedb.org/3/movie/popular?api_key=f9fed29318027d1571e2d4e385ce272d&language=es-ES&page=1')
       .then(response => response.json())
       .then(data => {
-        this.setState({ series: data.results, cargando: false })
+        this.setState({ data: data.results, cargando: false })
         console.log(data)
       })
-      .catch(() => this.setState({ series: [] }));
+      .catch(() => this.setState({ data: [] }));
   }
   render() {
     return (
       <div>
-        <Series data = {this.state.series}/>
+                <Movies
+              titulo="Popular movies this week"
+              videos={this.state.data}
+              toAll="/movies?mode=popular"
+            />
       </div>
 
     )
