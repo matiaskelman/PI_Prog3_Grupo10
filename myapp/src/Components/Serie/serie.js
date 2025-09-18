@@ -80,7 +80,7 @@ class Serie extends Component {
             </button>
           )}
 
-          <Link to={verificacion} className="btn btn--ol btn--sm">
+          <Link to={`/detalle/2${item.id}`} className="btn btn--ol btn--sm">
             Ver detalle
           </Link>
         </div>

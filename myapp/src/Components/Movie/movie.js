@@ -80,7 +80,7 @@ class Movie extends Component {
             </button>
           )}
 
-          <Link to={ `/detalle/${item.id} `} className="btn btn--ol btn--sm">
+          <Link to={ `/detalle/1${item.id} `} className="btn btn--ol btn--sm">
             Ver detalle
           </Link>
         </div>
