@@ -34,10 +34,9 @@ class Buscador extends Component {
           name="searchData"
           placeholder="Buscar..."
           value={this.state.busqueda}
-          onChange={this.controlarInput}
-        />
-        <label><input type="radio" name="tipo" value="movie" onChange={this.controlarRadio}/> Películas</label>
-        <label><input type="radio" name="tipo" value="tv" onChange={this.controlarRadio}/> Series</label>
+          onChange={this.controlarInput} required/>
+        <label><input type="radio" name="tipo" value="movie" onChange={this.controlarRadio} required/> Películas</label>
+        <label><input type="radio" name="tipo" value="tv" onChange={this.controlarRadio} required/> Series</label>
         <button type="submit" className="btn btn-success btn-sm">Buscar</button>
       </form>
     );
