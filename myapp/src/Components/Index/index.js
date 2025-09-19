@@ -33,12 +33,13 @@ class Index extends Component {
   render() {
     return (
       <main className="container">
+    
         <h1>UdeSA Movies</h1>
         {
           this.state.cargandoMasVistas ? <h1>Cargando...</h1> :
             <Movies
               titulo="Popular movies this week"
-              videos={this.state.masVistas.splice(0, 4)}
+              videos={this.state.masVistas.slice(0, 4)}
               toAll="/movies?mode=popular"
             />
 
@@ -48,7 +49,7 @@ class Index extends Component {
           this.state.cargandoMejores ? <h1>Cargando...</h1> :
             <Movies
               titulo="Top rated movies"
-              videos={this.state.mejorValoradas.splice(0, 4)}
+              videos={this.state.mejorValoradas.slice(0, 4)}
               toAll="/movies?mode=top_rated" />
         }
 

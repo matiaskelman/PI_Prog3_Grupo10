@@ -20,9 +20,9 @@ function App() {
         <Route path='/Favoritos' component={Favoritos} exact={true} />
         <Route path='/Peliculas' component={Peliculas} exact={true} />
         <Route path='/Series' component={SeriesView} exact={true} />
-        <Route path='/Resultados:busqueda' component={Resultados} exact={true} />
-        <Route path='/Detalle/:id' component={Detalle} exact={true} />
 
+        <Route path='/Detalle/:id' component={Detalle} exact={true} />
+         <Route path="/resultados/:busqueda/:tipo?" component={Resultados} exact={true} />
         <Route component={PageNotFound}/>
       </Switch>
       <Footer/>

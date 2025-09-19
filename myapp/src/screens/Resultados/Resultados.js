@@ -1,13 +1,48 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Movies from "../../Components/Movies/movies"
 
- class Resultados extends Component {
-  render() {
-    return (
-      <div>
-        <h1> Lo que busco el usuario fue: {this.params.busqueda}</h1>
-      </div>
-    )
-  }
+
+class Resultados extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+
+            cargandoElementos: true,
+            elementos: []
+        };
+    }
+
+    componentDidMount() {
+        console.log(this.props)
+        const url = `https://api.themoviedb.org/3/search/${this.props.match.params.tipo}?api_key=f9fed29318027d1571e2d4e385ce272d&query=${this.props.match.params.busqueda}`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                this.setState({ elementos: data.results, cargandoElementos: false })
+                console.log(data)
+            })
+
+    }
+    render() {
+        return (
+            <main className="container">
+                <h1>UdeSA Movies</h1>
+                {
+                    this.state.cargandoElementos ? <h1>Cargando...</h1> :
+                        <Movies
+                            titulo="Resultados de busqueda"
+                            videos={this.state.elementos}
+                            toAll={false}
+                        />
+
+                }
+
+            </main>
+
+
+        )
+    }
+
+
 }
-
 export default Resultados

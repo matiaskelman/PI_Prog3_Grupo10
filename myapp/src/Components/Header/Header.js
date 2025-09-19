@@ -25,8 +25,9 @@ class Header extends Component {
           </ul>
 
           
-          <Buscador />
+         <Buscador />
         </nav>
+        
       </header>
     );
   }
