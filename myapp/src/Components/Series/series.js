@@ -1,19 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Serie from '../Serie/serie';
+import './series.css'
 
-
-function Series({ data }) {
+function Series({ data, toAll }) {
   const titulo = "Series Populares";
   return (
-     <section className="sectionSeries">
-   {/*   <div className="divSeries"> */}
-
-      <h2 className="Titulo">{titulo}</h2>
-      {/*  {toAll === false ? null : (
-           <Link to={toAll} className="section__see-all">See all</Link>
-         )}
-       </div> */}
+      <section className="sectionSeries">
+        <div className="divSeries">
+          <h2 className="Titulo">{titulo}</h2>
+          {toAll === false ? null : (
+            <Link to={toAll} className="section__see-all">See all</Link>
+          )}
+        </div>
 
       <div className="grid">
         {data != null && data.length > 0

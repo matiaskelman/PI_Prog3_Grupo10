@@ -1,6 +1,8 @@
 import React from 'react'
 import { Component } from 'react'
 import Movies from '../Movies/movies'
+import Buscador from '../Buscador/Buscador';
+
 
 class Index extends Component {
 
@@ -33,8 +35,9 @@ class Index extends Component {
   render() {
     return (
       <main className="container">
-    
+        
         <h1>UdeSA Movies</h1>
+        <Buscador></Buscador>
         {
           this.state.cargandoMasVistas ? <h1>Cargando...</h1> :
             <Movies

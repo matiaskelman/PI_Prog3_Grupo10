@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Buscador from '../Buscador/Buscador';
+
 import './header.css';
 
 
@@ -9,6 +9,7 @@ class Header extends Component {
     return (
       <header className="site-header">
         <nav>
+          
           <ul className="nav nav-tabs my-4">
             <li className="nav-item">
               <Link className="nav-link" to="/">Home</Link>
@@ -22,10 +23,11 @@ class Header extends Component {
             <li className="nav-item">
               <Link className="nav-link" to="/Favoritos">Favoritos</Link>
             </li>
+            
           </ul>
-
-          
-         <Buscador />
+            <img src="../logo.png"  className="logo" /> 
+         
+                    
         </nav>
         
       </header>

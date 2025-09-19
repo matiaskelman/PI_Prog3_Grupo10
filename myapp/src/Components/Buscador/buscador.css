@@ -1,0 +1,33 @@
+.search-form {
+  margin-left: auto;
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center; 
+  gap: 8px;
+}
+
+.search-form input[type="text"] {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #7a001b;
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.search-form button {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #a0001f;
+  background: #a0001f;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.search-form label {
+  
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+}

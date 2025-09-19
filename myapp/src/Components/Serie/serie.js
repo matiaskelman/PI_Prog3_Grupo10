@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-
+import "./serie.css"  
 
 class Serie extends Component {
   constructor(props) {
