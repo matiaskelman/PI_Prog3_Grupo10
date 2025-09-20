@@ -15,8 +15,8 @@ class Favoritos extends Component {
   }
   
   refrescar(){
-    const moviesRaw = localStorage.getItem('favoritos');          // 👈 nuestra key
-    const seriesRaw = localStorage.getItem('favoritosSeries');    // 👈 nuestra key
+    const moviesRaw = localStorage.getItem('favoritos');          
+    const seriesRaw = localStorage.getItem('favoritosSeries');    
 
     let movies = [];
     let series = [];

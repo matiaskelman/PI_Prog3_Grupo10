@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './Movie.css';
+import "./Movie.css"  
 
 class Movie extends Component {
   constructor(props) {
@@ -8,46 +8,54 @@ class Movie extends Component {
     this.state = {
       esFavorito: false,
       verMas: false,
-      textoBoton: 'Ver mas',
+      textoBoton: 'Ver más',
       informacionItem: props.data
     };
   }
 
   componentDidMount() {
-    const recuperoFavoritos = localStorage.getItem('favoritos');
-    const favoritosParseados = recuperoFavoritos !== null ? JSON.parse(recuperoFavoritos) : [];
-    if (favoritosParseados.includes(this.state.informacionItem.id)) {
-      this.setState({ esFavorito: true });
-    }
+   const recuperoFavoritos = localStorage.getItem('favoritos'); 
+  const favoritosParseados = recuperoFavoritos !== null ? JSON.parse(recuperoFavoritos) : [];
+
+const ids = favoritosParseados.map(function(elemento) { return elemento.id; });
+if (ids.includes(this.state.informacionItem.id)) {
+  this.setState({ esFavorito: true });
+}
+
   }
 
   verDescripcion() {
     this.setState({
       verMas: !this.state.verMas,
-      textoBoton: this.state.textoBoton === 'Ver mas' ? 'Ver menos' : 'Ver mas'
+      textoBoton: this.state.textoBoton === 'Ver más' ? 'Ver menos' : 'Ver más'
     });
   }
 
   agregarFavorito(id) {
-    const recuperoFavoritos = localStorage.getItem('favoritos');
+    const recuperoFavoritos = localStorage.getItem('favoritos')
     const favoritosParseados = recuperoFavoritos !== null ? JSON.parse(recuperoFavoritos) : [];
-    favoritosParseados.push(id);
+    favoritosParseados.push(this.state.informacionItem); 
+
     localStorage.setItem('favoritos', JSON.stringify(favoritosParseados));
     this.setState({ esFavorito: true });
   }
 
   sacarFavorito(id) {
-    const recuperoFavoritos = localStorage.getItem('favoritos');
-    const favoritosParseados = recuperoFavoritos !== null ? JSON.parse(recuperoFavoritos) : [];
-    const filtroFavoritos = favoritosParseados.filter(f => f !== id);
-    localStorage.setItem('favoritos', JSON.stringify(filtroFavoritos));
-    this.setState({ esFavorito: false });
+    const recuperoFavoritos = localStorage.getItem('favoritos'); // ← películas
+const favoritosParseados = recuperoFavoritos !== null ? JSON.parse(recuperoFavoritos) : [];
+
+const filtroFavoritos = favoritosParseados.filter(function(elemento) {
+  return elemento.id !== id;
+});
+
+localStorage.setItem('favoritos', JSON.stringify(filtroFavoritos));
+
   }
 
   render() {
     const item = this.state.informacionItem;
-    const titulo = item.title != null ? item.title : item.name;
-    const verificacion = `/movie/detalle/${item.id}`;
+    const titulo = item.name != null ? item.name : item.title;
+    const verificacion = `/serie/detalle/${item.id}`;
 
     return (
       <article className="ficha">
@@ -80,7 +88,8 @@ class Movie extends Component {
             </button>
           )}
 
-          <Link to={ `/detalle/1${item.id} `} className="btn btn--ol btn--sm">
+         <Link to={`/Detalle/${item.id}`} className="btn btn--ol btn--sm">
+
             Ver detalle
           </Link>
         </div>
@@ -90,4 +99,3 @@ class Movie extends Component {
 }
 
 export default Movie;
-

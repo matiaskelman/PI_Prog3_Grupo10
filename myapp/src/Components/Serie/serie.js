@@ -17,6 +17,7 @@ class Serie extends Component {
     const recuperoFavoritos = localStorage.getItem('favoritosSeries');
     const favoritosParseados = recuperoFavoritos !== null ? JSON.parse(recuperoFavoritos) : [];
    
+  
     if (favoritosParseados.includes(this.state.informacionItem.id)) {
       this.setState({ esFavorito: true });
     }
