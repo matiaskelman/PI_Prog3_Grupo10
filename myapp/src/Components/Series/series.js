@@ -9,9 +9,7 @@ function Series({ data, toAll }) {
       <section className="sectionSeries">
         <div className="divSeries">
           <h2 className="Titulo">{titulo}</h2>
-          {toAll === false ? null : (
-            <Link to={toAll} className="section__see-all">See all</Link>
-          )}
+         
         </div>
 
       <div className="grid">

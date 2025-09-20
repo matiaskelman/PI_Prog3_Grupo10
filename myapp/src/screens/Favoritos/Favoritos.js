@@ -1,12 +1,12 @@
 import React from 'react'
-
-function Favoritos() {
+import Favoritos from "../../Components/Favorites/favorites"
+function like() {
   return (
 
       <div>
         
-       Favoritos
+       <Favoritos/>
       </div>
   );
 }
-export default Favoritos;
+export default like;

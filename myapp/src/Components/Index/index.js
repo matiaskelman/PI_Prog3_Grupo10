@@ -43,7 +43,7 @@ class Index extends Component {
             <Movies
               titulo="Popular movies this week"
               videos={this.state.masVistas.slice(0, 4)}
-              toAll="/movies?mode=popular"
+              toAll="/Peliculas?mode=popular"
             />
 
         }
@@ -53,7 +53,7 @@ class Index extends Component {
             <Movies
               titulo="Top rated movies"
               videos={this.state.mejorValoradas.slice(0, 4)}
-              toAll="/movies?mode=top_rated" />
+              toAll="/Peliculas?mode=top_rated" />
         }
 
 
