@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './favorites.css';
 
 class Favoritos extends Component {
   constructor(props){
     super(props);
     this.state = {
       favoriteMovies: [],
-      favoriteSeries: []
+      favoriteSeries: [],
+      cargandoElementos: true
     };
   }
   
@@ -30,38 +32,39 @@ class Favoritos extends Component {
 
     this.setState({
       favoriteMovies: movies,
-      favoriteSeries: series
+      favoriteSeries: series,
+      cargandoElementos: false
     });
   }
 
   removeFavorite = (type, id) => {
     if (type === 'movie') {
       const updated = this.state.favoriteMovies.filter(item => item.id !== id);
-      localStorage.setItem('favoritos', JSON.stringify(updated));          // 👈 nuestra key
+      localStorage.setItem('favoritos', JSON.stringify(updated));          
       this.setState({ favoriteMovies: updated });
     } else {
       const updated = this.state.favoriteSeries.filter(item => item.id !== id);
-      localStorage.setItem('favoritosSeries', JSON.stringify(updated));    // 👈 nuestra key
+      localStorage.setItem('favoritosSeries', JSON.stringify(updated));    
       this.setState({ favoriteSeries: updated });
     }
   }
 
   borrarTodos(){
-    localStorage.setItem('favoritos', JSON.stringify([]));                 // 👈 nuestra key
-    localStorage.setItem('favoritosSeries', JSON.stringify([]));           // 👈 nuestra key
+    localStorage.setItem('favoritos', JSON.stringify([]));                
+    localStorage.setItem('favoritosSeries', JSON.stringify([]));           
     this.setState({ favoriteMovies: [], favoriteSeries: [] });
   }
 
   renderItem = (item, type) => {
     return (
-      <div key={item.id} className="card-article-popular-movies">
+      <div key={item.id} className="card-article">
         <img
           src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
           alt=""
         />
         <h3>{item.original_title || item.title || item.original_name || item.name}</h3>
         <div>
-          <Link to={`/Detalle/${item.id}`}>Ver detalle</Link> {/* ruta de tu App.js */}
+          <Link to={`/Detalle/${item.id}`}>Ver detalle</Link> {}
           <button onClick={() => this.removeFavorite(type, item.id)}>Eliminar</button>
         </div>
       </div>
@@ -69,13 +72,18 @@ class Favoritos extends Component {
   }
 
   render() {
+    if (this.state.cargandoElementos) {
+      return <h1 >Cargando...</h1>;
+  }
     return (
+     
+
       <main>
         <div className="favorites-container">
           <h1 className="page-title">Mis Favoritos</h1>
           
           <h2 className="section-title">Películas favoritas</h2>
-          <section className='movies-grid'>
+          <section className='grid'>
             {this.state.favoriteMovies.length === 0 ? (
               <p className="favorites-empty">No hay películas favoritas.</p>
             ) : (
@@ -84,11 +92,11 @@ class Favoritos extends Component {
           </section>
 
           <h2 className="section-title">Series favoritas</h2>
-          <section className='movies-grid'>
+          <section className='grid'>
             {this.state.favoriteSeries.length === 0 ? (
               <p className="favorites-empty">No hay series favoritas.</p>
             ) : (
-              this.state.favoriteSeries.map(item => this.renderItem(item, 'tv'))
+              this.state.favoriteSeries.map(item => this.renderItem(item, 'series'))
             )}
           </section>
 

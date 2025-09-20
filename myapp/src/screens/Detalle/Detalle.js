@@ -7,7 +7,7 @@ export class Detalle extends Component {
     super(props);
     this.state = {
       detalle: [],
-      cargando: true,
+      cargandoElementos: true,
       id: props.match.params.id
    
     };
@@ -19,7 +19,7 @@ id = id.slice(1)
     fetch( `https://api.themoviedb.org/3/movie/${id}?api_key=f9fed29318027d1571e2d4e385ce272d&language=es-ES&page=1`)
       .then(response => response.json())
       .then(data => {
-        this.setState({ detalle: data, cargando: false })
+        this.setState({ detalle: data,cargandoElementos: false })
         console.log(data)
       })
       .catch(() => this.setState({ detalle: [] }));
@@ -29,7 +29,7 @@ else {
     fetch( `https://api.themoviedb.org/3/tv/${id}?api_key=f9fed29318027d1571e2d4e385ce272d&language=es-ES&page=1`)
       .then(response => response.json())
       .then(data => {
-        this.setState({ detalle: data, cargando: false })
+        this.setState({ detalle: data, cargandoElementos: false })
         console.log(data)
       })
       .catch(() => this.setState({ detalle: [] }));
@@ -41,6 +41,10 @@ else {
 let id = this.props.match.params.id
     const item = this.state.detalle;
     
+       if (this.state.cargandoElementos) {
+    return <h1>Cargando...</h1>;
+  }
+
     if(id[0] === "1"){
  
     return (

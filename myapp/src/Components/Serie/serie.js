@@ -33,7 +33,7 @@ class Serie extends Component {
   agregarFavorito(id) {
     const recuperoFavoritos = localStorage.getItem('favoritosSeries');
     const favoritosParseados = recuperoFavoritos !== null ? JSON.parse(recuperoFavoritos) : [];
-    favoritosParseados.push(id);
+    favoritosParseados.push(this.state.informacionItem);
     localStorage.setItem('favoritosSeries', JSON.stringify(favoritosParseados));
     this.setState({ esFavorito: true });
   }
@@ -41,7 +41,7 @@ class Serie extends Component {
   sacarFavorito(id) {
     const recuperoFavoritos = localStorage.getItem('favoritosSeries');
     const favoritosParseados = recuperoFavoritos !== null ? JSON.parse(recuperoFavoritos) : [];
-    const filtroFavoritos = favoritosParseados.filter(f => f !== id);
+    const filtroFavoritos = favoritosParseados.filter(f => f.id !== id);
     localStorage.setItem('favoritosSeries', JSON.stringify(filtroFavoritos));
     this.setState({ esFavorito: false });
   }

@@ -7,7 +7,7 @@ export class SeriesView extends Component {
     super(props);
     this.state = {
       series: [],
-      cargando: true,
+      cargandoElementos: true,
       pag: 1
     };
     
@@ -19,12 +19,12 @@ export class SeriesView extends Component {
       .then(data => {
         this.setState(
           { series: data.results || [], 
-          cargando: false,
+          cargandoElementos: false,
           pag: this.state.pag + 1
         });
         
       })
-      .catch(() => this.setState({ series: [],cargando:false }));
+      .catch(() => this.setState({ series: [],cargandoElementos:false }));
   }
 
     cargarMas() {
@@ -38,19 +38,18 @@ export class SeriesView extends Component {
       })
        .catch((error) => console.log("Error Fetch", error));
     }
-  render() {
-    return (
-      <div>
-        <Series data = {this.state.series}/>
-        {this.state.cargando ? null : (
-          <button onClick={() => this.cargarMas()} className="cargarMas">
-            Cargar más
-          </button> )}
-        
-      </div>
-
-    )
-  }
+render() {
+  return (
+    <div>
+      {
+        this.state.cargandoElementos  ? <h1>Cargando...</h1>  : (
+            <>
+              <Series data={this.state.series} />
+              <button onClick={() => this.cargarMas()} className="cargarMas"> Cargar más </button>
+            </>
+          )
+      }
+      </div> )}
 }
 
 export default SeriesView;

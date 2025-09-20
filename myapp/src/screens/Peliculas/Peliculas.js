@@ -5,7 +5,7 @@ export class Peliculas extends Component {
     super(props);
     this.state = {
       data: [],
-      cargando: true,
+      cargandoElementos: true,
       pag: 1
     };
 
@@ -17,11 +17,11 @@ export class Peliculas extends Component {
       .then(data => {
         this.setState({
           data: data.results,
-          cargando: false,
+          cargandoElementos: false,
           pag: this.state.pag + 1
         })
       })
-      .catch(() => this.setState({ data: [], cargando: false }));
+      .catch(() => this.setState({ data: [], cargandoElementos: false }));
   }
 cargarMas() {
   fetch(`https://api.themoviedb.org/3/movie/popular?api_key=f9fed29318027d1571e2d4e385ce272d&language=es-ES&page=${this.state.pag}`)
@@ -40,20 +40,19 @@ cargarMas() {
 
 
   render() {
-    return (
-      <div>
-        <Movies
-          titulo="Popular movies this week"
-          videos={this.state.data}
-          toAll="/movies?mode=popular"
-        />
-         {this.state.cargando ? null : (
-          <button onClick={() => this.cargarMas()}>Cargar más</button>
-         )}
-      </div>
-
-    )
-  }
+  return (
+    <div>
+      {  this.state.cargandoElementos ? <h1>Cargando...</h1>   : (
+            <>
+              <Movies
+                titulo="Popular movies this week" videos={this.state.data} toAll="/movies?mode=popular" />
+              <button onClick={() => this.cargarMas()}>Cargar más</button>
+            </>
+          )
+      }
+    </div>
+  )
+}
 }
 
 export default Peliculas;
