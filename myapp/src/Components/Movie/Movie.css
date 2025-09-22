@@ -1,4 +1,4 @@
-/* ----- Contenedor principal ----- */
+
 .ficha {
   background: #1c1c1c;
   border-radius: 10px;
@@ -36,7 +36,7 @@
   margin-bottom: 8px;
 }
 
-/* ----- Botón: Ver más ----- */
+
 .botonVerMas {
   display: inline-block;
   padding: 8px 14px;
@@ -49,7 +49,7 @@
   margin: 4px;
 }
 
-/* ----- Botón: Agregar a favoritos ----- */
+
 .botonAgregarFavorito {
   display: inline-block;
   padding: 8px 14px;
@@ -62,7 +62,7 @@
   margin: 4px;
 }
 
-/* ----- Botón: Quitar de favoritos ----- */
+
 .botonQuitarFavorito {
   display: inline-block;
   padding: 8px 14px;
@@ -75,7 +75,7 @@
   margin: 4px;
 }
 
-/* ----- Botón: Ver detalle ----- */
+
 .botonVerDetalle {
   display: inline-block;
   padding: 8px 14px;

@@ -41,15 +41,15 @@ if (ids.includes(this.state.informacionItem.id)) {
   }
 
   sacarFavorito(id) {
-    const recuperoFavoritos = localStorage.getItem('favoritos'); // ← películas
-const favoritosParseados = recuperoFavoritos !== null ? JSON.parse(recuperoFavoritos) : [];
+    const recuperoFavoritos = localStorage.getItem('favoritos');
+    const favoritosParseados = recuperoFavoritos !== null ? JSON.parse(recuperoFavoritos) : [];
 
-const filtroFavoritos = favoritosParseados.filter(function(elemento) {
-  return elemento.id !== id;
-});
+    const filtroFavoritos = favoritosParseados.filter(function (elemento) {
+     
+    });
 
-localStorage.setItem('favoritos', JSON.stringify(filtroFavoritos));
-
+    localStorage.setItem('favoritos', JSON.stringify(filtroFavoritos));
+    this.setState({ esFavorito: false });
   }
 
   render() {
