@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Movies from "../../Components/Movies/movies"
-
+import Series from '../../Components/Series/series';
 
 class Resultados extends Component {
     constructor(props) {
@@ -27,15 +27,24 @@ class Resultados extends Component {
         return (
             <main className="container">
                 <h1>UdeSA Movies</h1>
-                {
-                    this.state.cargandoElementos ? <h1>Cargando...</h1> :
+                {this.props.match.params.tipo === "movie" ? <><h2>Resultados de peliculas para "{this.props.match.params.busqueda}"</h2> 
+                          
+                  {  this.state.cargandoElementos ? <h1>Cargando...</h1> :
                         <Movies
                             titulo="Resultados de busqueda"
                             videos={this.state.elementos}
-                            toAll={false}
-                        />
+                            toAll={""}
+                        /> }
+                        </>
 
-                }
+                          :
+                        <><h2>Resultados de series para "{this.props.match.params.busqueda}"</h2> 
+                          
+                  {  this.state.cargandoElementos ? <h1>Cargando...</h1> :
+                        <Series data={this.state.elementos} 
+                        /> }
+                        </>}
+      
 
             </main>
 

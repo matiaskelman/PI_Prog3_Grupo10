@@ -45,7 +45,7 @@ cargarMas() {
       {  this.state.cargandoElementos ? <h1>Cargando...</h1>   : (
             <>
               <Movies
-                titulo="Popular movies this week" videos={this.state.data} toAll="/movies?mode=popular" />
+                titulo="Popular movies this week" videos={this.state.data} toAll="" />
               <button onClick={() => this.cargarMas()}>Cargar más</button>
             </>
           )

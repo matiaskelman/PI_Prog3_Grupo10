@@ -88,7 +88,7 @@ localStorage.setItem('favoritos', JSON.stringify(filtroFavoritos));
             </button>
           )}
 
-         <Link to={`/Detalle/${item.id}`} className="btn btn--ol btn--sm">
+         <Link to={`/Detalle/1${item.id}`} className="btn btn--ol btn--sm">
 
             Ver detalle
           </Link>

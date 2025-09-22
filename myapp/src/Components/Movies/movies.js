@@ -8,9 +8,9 @@ function Movies({ titulo, videos, toAll }) {
     <section className="sectionMovies">
       <div className="divMovies">
         <h2 className="Titulo">{titulo}</h2>
-        {toAll === false ? null : (
+        {(toAll != "")  ? (
           <Link to={toAll} className="section__see-all">See all</Link>
-        )}
+        ) : null }
       </div>
 
       <div className="grid">

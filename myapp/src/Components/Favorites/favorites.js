@@ -64,7 +64,10 @@ class Favoritos extends Component {
         />
         <h3>{item.original_title || item.title || item.original_name || item.name}</h3>
         <div>
-          <Link to={`/Detalle/${item.id}`}>Ver detalle</Link> {}
+          {
+            type === 'movie' ? <Link to={`/Detalle/1${item.id}`}>Ver detalle</Link> : <Link to={`/Detalle/2${item.id}`}>Ver detalle</Link>
+          }
+          
           <button onClick={() => this.removeFavorite(type, item.id)}>Eliminar</button>
         </div>
       </div>
