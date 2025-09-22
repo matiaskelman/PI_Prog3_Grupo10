@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import "./serie.css"  
+import "./Serie.css"  
 
 class Serie extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class Serie extends Component {
   render() {
     const item = this.state.informacionItem;
     const titulo = item.name != null ? item.name : item.title;
-    const verificacion = `/serie/detalle/${item.id}`;
+    
 
     return (
       <article className="ficha">

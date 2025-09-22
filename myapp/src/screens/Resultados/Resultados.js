@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Movies from "../../Components/Movies/movies"
-import Series from '../../Components/Series/series';
+import Movies from "../../Components/Movies/Movies"
+import Series from '../../Components/Series/Series';
 
 class Resultados extends Component {
     constructor(props) {

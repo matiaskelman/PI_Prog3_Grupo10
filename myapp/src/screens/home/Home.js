@@ -1,5 +1,5 @@
 import React from 'react'
-import Index from '../../Components/Index/index';
+import Index from '../../Components/Index/Index';
 function Home() {
 
   return (
