@@ -54,7 +54,7 @@ let id = this.props.match.params.id
       <h2>{item.vote_average}</h2>
       <h2>{item.release_date}</h2>
       <p>{item.overview}</p>
-      <img src={`https://image.tmdb.org/t/p/w342${item.poster_path}`} alt={item.title} />
+      <img src={`https://image.tmdb.org/t/p/w342${item.poster_path}`} alt={item.title} className="img" />
       <a href= {`${item.homepage}`} ><h3>Pagina web</h3></a>
       
       </article>
@@ -71,7 +71,7 @@ let id = this.props.match.params.id
         <li>Número de temporadas: {item.number_of_seasons}</li>
         <li>Número de episodios: {item.number_of_episodes}</li>
       </ul>
-      <img src={`https://image.tmdb.org/t/p/w342${item.poster_path}`} alt={item.title} />
+      <img src={`https://image.tmdb.org/t/p/w342${item.poster_path}`} alt={item.title} className="img"/>
       <a href= {`${item.homepage}`} ><h3>Pagina web</h3></a>
       
       </article>

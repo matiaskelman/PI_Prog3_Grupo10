@@ -7,10 +7,10 @@ import './header.css';
 class Header extends Component {
   render() {
     return (
-      <header className="site-header">
+      <header>
         <nav>
           
-          <ul className="nav nav-tabs my-4">
+          <ul className="navUl">
             <li className="nav-item">
               <Link className="nav-link" to="/">Home</Link>
             </li>

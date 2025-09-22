@@ -6,14 +6,34 @@ header {
   
 }
 
-header .barra { display: flex; align-items: center; gap: 18px; }
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-header nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 16px; }
-header nav a { color: #ffffff; text-decoration: none; padding: 6px 8px; border-radius: 6px; }
-header nav a:hover { background: #7a001b; }
+.navUl {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 16px;
+}
+
+.nav-item {
+  margin: 0;
+}
+
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 14px;
+}
 
 
 .logo {
-   height: 50px;
-   margin-left: 90%;
+   height: 90px;
+    mix-blend-mode: multiply;  /* Es para que se mezcle con el fondo (lo pregunte a ChatGpt) */
 }

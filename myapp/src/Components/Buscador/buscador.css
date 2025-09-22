@@ -6,7 +6,7 @@
   gap: 8px;
 }
 
-.search-form input[type="text"] {
+.search-form input {
   padding: 6px 10px;
   border-radius: 6px;
   border: 1px solid #7a001b;
@@ -14,7 +14,7 @@
   color: #fff;
 }
 
-.search-form button {
+.botonBuscar {
   padding: 6px 10px;
   border-radius: 6px;
   border: 1px solid #a0001f;
@@ -25,7 +25,6 @@
 
 
 .search-form label {
-  
   display: flex;
   align-items: center;
   gap: 4px;

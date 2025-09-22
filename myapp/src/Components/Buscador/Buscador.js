@@ -37,7 +37,7 @@ class Buscador extends Component {
           onChange={this.controlarInput} required/>
         <label><input type="radio" name="tipo" value="movie" onChange={this.controlarRadio} required/> Películas</label>
         <label><input type="radio" name="tipo" value="tv" onChange={this.controlarRadio} required/> Series</label>
-        <button type="submit" className="btn btn-success btn-sm">Buscar</button>
+        <button type="submit" className="botonBuscar">Buscar</button>
       </form>
     );
   }

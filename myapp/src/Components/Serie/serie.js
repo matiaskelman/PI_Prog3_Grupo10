@@ -68,21 +68,21 @@ class Serie extends Component {
             <p className="descrip">{item.overview}</p>
           ) : null}
 
-          <button onClick={() => this.verDescripcion()} className="btn btn--pri btn--sm">
+          <button onClick={() => this.verDescripcion()} className="botonVerMas">
             {this.state.textoBoton}
           </button>
 
           {this.state.esFavorito ? (
-            <button onClick={() => this.sacarFavorito(item.id)} className="btn btn--adv btn--sm">
+            <button onClick={() => this.sacarFavorito(item.id)} className="botonQuitarFavorito">
               Sacar
             </button>
           ) : (
-            <button onClick={() => this.agregarFavorito(item.id)} className="btn btn--adv btn--sm">
+            <button onClick={() => this.agregarFavorito(item.id)} className="botonAgregarFavorito">
               Agregar
             </button>
           )}
 
-          <Link to={`/detalle/2${item.id}`} className="btn btn--ol btn--sm">
+          <Link to={`/detalle/2${item.id}`} className="botonVerDetalle">
             Ver detalle
           </Link>
         </div>
