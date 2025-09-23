@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Series from '../../Components/Series/series';
+import Series from '../../Components/Series/Series';
 
 
 export class SeriesView extends Component {
