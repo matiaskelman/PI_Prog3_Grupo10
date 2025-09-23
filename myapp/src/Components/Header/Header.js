@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-import './Header.css';
+import './header.css';
 
 
 class Header extends Component {
@@ -25,7 +25,7 @@ class Header extends Component {
             </li>
             
           </ul>
-            <img src="../logo.png"  className="logo" /> 
+            <img src="../logo.png" alt='logo' className="logo" /> 
          
                     
         </nav>

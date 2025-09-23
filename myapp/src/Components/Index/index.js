@@ -1,6 +1,6 @@
 import React from 'react'
 import { Component } from 'react'
-import Movies from '../Movies/Movies'
+import Movies from '../Movies/movies'
 import Buscador from '../Buscador/Buscador';
 
 

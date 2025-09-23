@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './Favorites.css';
+import './favorites.css'; 
 
 class Favoritos extends Component {
   constructor(props){

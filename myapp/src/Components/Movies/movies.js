@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Movie from '../Movie/Movie';
-import "./Style.css"
+import Movie from '../Movie/movie';
+import "./style.css"
 
 function Movies({ titulo, videos, toAll }) {
   return (
     <section className="sectionMovies">
       <div className="divMovies">
         <h2 className="Titulo">{titulo}</h2>
-        {(toAll != "")  ? (
+        {(toAll !== "")  ? (
           <Link to={toAll} className="section__see-all">See all</Link>
         ) : null }
       </div>
