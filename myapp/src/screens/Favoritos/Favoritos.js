@@ -1,5 +1,5 @@
 import React from 'react'      
-import Favoritos from "../../Components/Favorites/favorites"
+import Favoritos from "../../Components/Favorites/Favorites"
 function like() {
   return (
 

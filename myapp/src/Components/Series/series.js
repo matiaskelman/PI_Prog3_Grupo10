@@ -1,6 +1,6 @@
 import React from 'react';
-import Serie from '../Serie/serie';
-import './series.css'
+import Serie from '../Serie/Serie';
+import './Series.css'
 
 function Series({ data, toAll }) {
   const titulo = "Series Populares";

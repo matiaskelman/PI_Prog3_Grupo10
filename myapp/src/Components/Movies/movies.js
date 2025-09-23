@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Movie from '../Movie/movie';
-import "./style.css"
+import Movie from '../Movie/Movie';
+import "./Style.css"
 
 function Movies({ titulo, videos, toAll }) {
   return (
